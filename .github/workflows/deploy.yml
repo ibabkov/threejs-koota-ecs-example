@@ -2,9 +2,10 @@ name: Build and Deploy
 
 on:
   push:
-    branches: ["main"] # Ensure this matches your default branch name
+    branches: ["main"]
   pull_request:
     branches: ["main"]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -35,7 +36,6 @@ jobs:
         with:
           path: ./dist
 
-  # Add this deployment job
   deploy:
     environment:
       name: github-pages
